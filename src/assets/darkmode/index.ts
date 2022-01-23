@@ -10,7 +10,9 @@
 
 import {DDGreyDark, DDGreyLight, DDGreyNormal} from '../defaultDesign';
 
-export type Theme = {
+export type Theme = 'dark' | 'light';
+
+export type ThemeType = {
   major: {
     bgColor: string;
     textColor: string;
@@ -21,7 +23,7 @@ export type Theme = {
   };
 };
 
-export type ThemeType = 'major' | 'minor';
+export type ThemeSpecific = 'major' | 'minor';
 
 export const lightTheme = {
   major: {

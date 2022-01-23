@@ -1,15 +1,18 @@
 import React, {FC} from 'react';
-import {View as BaseView, ViewProps as BaseViewProps} from 'react-native';
+import {
+  SafeAreaView as BaseSafeAreaView,
+  ViewProps as BaseViewProps,
+} from 'react-native';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../store/store';
 import {darkTheme, lightTheme, ThemeSpecific} from '../darkmode';
 
-interface ViewProps extends BaseViewProps {
+interface SafeAreaViewProps extends BaseViewProps {
   isTheme?: boolean;
   themeSpecific?: ThemeSpecific;
 }
 
-export const View: FC<ViewProps> = ({
+export const SafeAreaView: FC<SafeAreaViewProps> = ({
   isTheme,
   themeSpecific = 'major',
   style,
@@ -17,7 +20,7 @@ export const View: FC<ViewProps> = ({
 }) => {
   const theme = useSelector<RootState>(state => state.theme.theme);
   return (
-    <BaseView
+    <BaseSafeAreaView
       style={[
         isTheme && {
           backgroundColor:
@@ -28,6 +31,6 @@ export const View: FC<ViewProps> = ({
         style,
       ]}>
       {props.children}
-    </BaseView>
+    </BaseSafeAreaView>
   );
 };
