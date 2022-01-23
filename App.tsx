@@ -7,9 +7,7 @@ const App = function () {
   return (
     <SafeAreaView>
       <View>
-        <Text raised theme={{roundness: 3}} sizeLevel={5}>
-          12356789
-        </Text>
+        <Text sizeLevel={5}>12356789</Text>
       </View>
     </SafeAreaView>
   );
