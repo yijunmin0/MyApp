@@ -8,9 +8,10 @@
 // lightTheme<=>darkTheme
 // black<=>white
 
-import {DDGreyDark, DDGreyLight, DDGreyNormal} from '../defaultDesign';
+import {Appearance} from 'react-native';
+import {DDGreyDark, DDGreyLight, DDGreyNormal} from './defaultDesign';
 
-export type Theme = 'dark' | 'light';
+export type Theme = ReturnType<typeof Appearance.getColorScheme>;
 
 export type ThemeType = {
   major: {

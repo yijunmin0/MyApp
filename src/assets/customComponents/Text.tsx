@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../store/store';
-import {darkTheme, lightTheme, ThemeSpecific} from '../darkmode';
+import {darkTheme, lightTheme, Theme, ThemeSpecific} from '../darkmode';
 
 type FontSizeLevel = 1 | 2 | 3 | 4 | 5;
 
@@ -21,11 +21,11 @@ export const Text: FC<TextProps> = ({
   style,
   sizeLevel = 2, //defaultSize
   children,
-  isTheme = false,
+  isTheme = true,
   themeSpecific = 'major',
   ...props
 }) => {
-  const theme = useSelector<RootState>(state => state.theme.theme);
+  const theme = useSelector<RootState, Theme>(state => state.theme.theme);
   return (
     <BaseText
       style={[
@@ -35,6 +35,7 @@ export const Text: FC<TextProps> = ({
             theme === 'dark'
               ? darkTheme[themeSpecific].textColor
               : lightTheme[themeSpecific].textColor,
+          //다크모드를 지원하지 않는 기기는 자동으로 lightTheme이 됨
         },
         // eslint-disable-next-line react-native/no-inline-styles
         {

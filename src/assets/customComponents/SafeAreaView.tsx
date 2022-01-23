@@ -13,7 +13,7 @@ interface SafeAreaViewProps extends BaseViewProps {
 }
 
 export const SafeAreaView: FC<SafeAreaViewProps> = ({
-  isTheme,
+  isTheme = true,
   themeSpecific = 'major',
   style,
   ...props

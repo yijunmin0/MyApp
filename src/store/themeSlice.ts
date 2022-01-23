@@ -4,9 +4,15 @@ import {Theme} from '../assets/darkmode';
 
 interface ThemeState {
   theme: Theme;
+  mode: ThemeMode;
 }
 
-const initialState = {theme: Appearance.getColorScheme()} as ThemeState;
+export type ThemeMode = 'app' | 'dark' | 'light';
+
+const initialState: ThemeState = {
+  theme: Appearance.getColorScheme() as Theme,
+  mode: 'app',
+};
 
 const themeSlice = createSlice({
   name: 'theme',
@@ -15,8 +21,11 @@ const themeSlice = createSlice({
     update(state, action: PayloadAction<Theme>) {
       state.theme = action.payload;
     },
+    modeChange(state, action: PayloadAction<ThemeMode>) {
+      state.mode = action.payload;
+    },
   },
 });
 
-export const {update} = themeSlice.actions;
+export const {update, modeChange} = themeSlice.actions;
 export default themeSlice.reducer;
