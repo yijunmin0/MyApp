@@ -24,7 +24,7 @@ export type ThemeType = {
   };
 };
 
-export type ThemeSpecific = 'major' | 'minor';
+export type ThemeSelcetion = 'major' | 'minor';
 
 export const lightTheme = {
   major: {

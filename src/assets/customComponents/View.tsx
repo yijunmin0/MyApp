@@ -2,16 +2,16 @@ import React, {FC} from 'react';
 import {View as BaseView, ViewProps as BaseViewProps} from 'react-native';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../store/store';
-import {darkTheme, lightTheme, Theme, ThemeSpecific} from '../darkmode';
+import {darkTheme, lightTheme, Theme, ThemeSelcetion} from '../darkmode';
 
 interface ViewProps extends BaseViewProps {
   isTheme?: boolean;
-  themeSpecific?: ThemeSpecific;
+  themeSelcetion?: ThemeSelcetion;
 }
 
 export const View: FC<ViewProps> = ({
   isTheme = true,
-  themeSpecific = 'major',
+  themeSelcetion = 'major',
   style,
   ...props
 }) => {
@@ -22,8 +22,8 @@ export const View: FC<ViewProps> = ({
         isTheme && {
           backgroundColor:
             theme === 'dark'
-              ? darkTheme[themeSpecific].bgColor
-              : lightTheme[themeSpecific].bgColor,
+              ? darkTheme[themeSelcetion].bgColor
+              : lightTheme[themeSelcetion].bgColor,
           //다크모드를 지원하지 않는 기기는 자동으로 lightTheme이 됨
         },
         style,

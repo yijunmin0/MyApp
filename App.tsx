@@ -13,22 +13,20 @@ import {ThemeScreen} from './src/screens/ThemeScreen';
 
 const App = function () {
   const dispatch = useDispatch<AppDispatch>();
-  const [appTheme, setAppTheme] = useState<Theme>(Appearance.getColorScheme());
+  const [deviceTheme, setDeviceTheme] = useState<Theme>(
+    Appearance.getColorScheme(),
+  );
   const mode = useSelector<RootState, ThemeMode>(state => state.theme.mode);
   useEffect(() => {
     Appearance.addChangeListener(scheme => {
-      setAppTheme(scheme.colorScheme);
+      setDeviceTheme(scheme.colorScheme);
     });
-    console.log(appTheme);
-    mode === 'app' ? dispatch(update(appTheme)) : dispatch(update(mode));
-    console.log(mode);
+    mode === 'device' ? dispatch(update(deviceTheme)) : dispatch(update(mode));
   });
   return (
-    <SafeAreaView isTheme themeSpecific="major" style={styles.SafeAreaView}>
-      <View style={styles.view} isTheme themeSpecific="major">
-        <Text isTheme themeSpecific="minor" sizeLevel={5}>
-          1235678912312fdㅇㅇ
-        </Text>
+    <SafeAreaView style={styles.SafeAreaView}>
+      <View style={styles.view}>
+        <Text sizeLevel={5}>1235678912312fdㅇㅇ</Text>
         <ThemeScreen />
       </View>
     </SafeAreaView>

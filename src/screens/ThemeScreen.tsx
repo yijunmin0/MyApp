@@ -23,7 +23,7 @@ export const ThemeScreen = function () {
       <Button
         title="app"
         onPress={() => {
-          dispatch(modeChange('app'));
+          dispatch(modeChange('device'));
         }}
       />
     </View>

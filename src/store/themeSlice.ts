@@ -7,11 +7,11 @@ interface ThemeState {
   mode: ThemeMode;
 }
 
-export type ThemeMode = 'app' | 'dark' | 'light';
+export type ThemeMode = 'device' | 'dark' | 'light';
 
 const initialState: ThemeState = {
-  theme: Appearance.getColorScheme() as Theme,
-  mode: 'app',
+  theme: Appearance.getColorScheme(),
+  mode: 'device',
 };
 
 const themeSlice = createSlice({
