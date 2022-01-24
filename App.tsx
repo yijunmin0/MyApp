@@ -26,7 +26,7 @@ const App = function () {
   return (
     <SafeAreaView style={styles.SafeAreaView}>
       <View style={styles.view}>
-        <Text sizeLevel={5}>1235678912312fdㅇㅇ</Text>
+        {/* <Text sizeLevel={5}>1235678912312fdㅇㅇ</Text> */}
         <ThemeScreen />
       </View>
     </SafeAreaView>
@@ -35,7 +35,7 @@ const App = function () {
 
 const styles = StyleSheet.create({
   SafeAreaView: {flex: 1},
-  view: {flex: 1, paddingHorizontal: 16},
+  view: {flex: 1},
 });
 
 export default App;
